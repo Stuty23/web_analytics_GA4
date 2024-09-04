@@ -101,6 +101,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 class="menuItem">HIPPIE</h3>
         </div>
     </nav>
+
+    <!-- Link to open the modal -->
+    <a href="#" id="openModal">Policy Document</a>
+
+    <!-- The Modal -->
+    <div id="policyModal" class="modal">
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <!-- Embed the PDF inside an iframe -->
+            <iframe src="Policy Document.pdf" class="pdf-viewer" frameborder="0"></iframe>
+        </div>
+
+    </div>
+
     <div class="slider">
         <div class="sliderWrapper">
             <div class="sliderItem">
@@ -251,6 +267,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 alt="" class="nsImg">
         </div>
     </div>
+
+    <div class="form-container">
+        <h1>Feedback Form</h1>
+
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Below Average</option>
+                <option value="1">Poor</option>
+            </select>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Write your comments.." rows="4" required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <div id="feedbackMessage"></div>
+    </div>
+
+
     <footer>
         <div class="footerLeft">
             <div class="footerMenu">
@@ -307,7 +353,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
     <script src="./app.js"></script>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/t2_Q2BRzeEE?si=XCWdnmDxGJKGIDIf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UbpuZCB3x9k?si=ili0SlXS-jITj-dN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <script>
+        // Get the modal
+var modal = document.getElementById("policyModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("openModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close-button")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+    </script>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Capture form data
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var rating = document.getElementById('rating').value;
+    var comments = document.getElementById('comments').value;
+
+    // Simple validation (optional)
+    if (!name || !email || !rating || !comments) {
+        document.getElementById('feedbackMessage').textContent = "Please fill out all fields.";
+        return;
+    }
+
+    // Display feedback message
+    document.getElementById('feedbackMessage').textContent = "Thank you for your feedback, " + name + "!";
+
+    // Reset form
+    document.getElementById('feedbackForm').reset();
+});
+    </script>
 </body>
 
 </html>
