@@ -1,6 +1,17 @@
 <html lang="en">
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-NDG4QBFW"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'GTM-NDG4QBFW');
+    </script>
+
     
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNHPD28VEZ"></script>
@@ -407,6 +418,18 @@ window.onclick = function(event) {
     // Reset form
     document.getElementById('feedbackForm').reset();
 });
+    </script>
+
+    <script>
+      /**
+      *   The following event is sent when the page loads. You could
+      *   wrap the event in a JavaScript function so the event is
+      *   sent when the user performs some action.
+      */
+      gtag('event', 'home_view', {
+        'app_name': 'My Demo web',
+        'screen_name': 'Home'
+      });
     </script>
 </body>
 
